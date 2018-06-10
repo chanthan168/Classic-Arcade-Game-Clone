@@ -1,7 +1,7 @@
 # Arcade Game Project
 
 ## What is the Arcade Game
-This is a game which built a player and 3 bugs. The purpose of this game is player to reach the water side by avoiding getting hit by the bugs.
+* This is a game which built a player and 3 bugs. The purpose of this game is player to reach the water side by avoiding getting hit by the bugs.
 
 ## Instructions
 * Click on "Clone or Download" on this repository page and download it as ZIP. Extract the folder content and open "index.html" to run the game.
