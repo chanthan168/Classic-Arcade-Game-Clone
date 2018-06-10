@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Classic Arcade Game Clone</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Shrikhand">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+      <header>
+        <h2>Classic Arcade Game</h2>
+      </header>
+
+      <section class="game-panel">
+        Score: <span class="score"></span>
+        <ul class="life">
+          <li><i class="fa fa-heart"></i></li>
+          <li><i class="fa fa-heart"></i></li>
+          <li><i class="fa fa-heart"></i></li>
+        </ul>
+      </section>
+
+      <section class="modal">
+        <p class="gameOver">Your score</p>
+        <p class="scoring"></p>
+        <button class="playAgain" onclick="window.location.reload()">Play again <i class="fa fa-repeat"></i></button>
+      </section>
+
+    </div>
+    <script src="js/resources.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/engine.js"></script>
+
+</body>
+</html>
