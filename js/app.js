@@ -1,9 +1,13 @@
-let life = document.querySelectorAll('.fa-heart');
+'use strict';
 let modal = document.querySelector('.modal');
+let gameScore = document.querySelector('.score');
+let resultScore = document.querySelector('.scoring');
+let resultGame = document.querySelector('.resultGame');
 let score = 0;
-let i = 2;
 let startTime = Date.now();
 let winTime;
+let result = true;
+
 // Enemies our player must avoid
 let Enemy = function(x,y,speed) {
     // letiables applied to each of our instances go here,
@@ -31,17 +35,17 @@ Enemy.prototype.update = function(dt) {
    }
 
    // Check for collision between player and enemies
-   if (player.x < this.x + 60 &&
-       player.x + 37 > this.x &&
-       player.y < this.y + 25 &&
-       30 + player.y > this.y) {
+   if (player.x >= this.x - 40 &&
+       player.x <= this.x + 40 &&
+       player.y >= this.y - 20 &&
+       player.y <= this.y + 20) {
        player.x = 200;
        player.y = 380;
 
-       if (i >= 0) {
-          life[i].style.visibility = "collapse";
-          i--;
-       }
+       //Gameover
+       resultGame.innerHTML = 'Game over, you hit the bug!!!';
+       modal.style.display = 'flex';
+       result = false;
     }
 };
 
@@ -75,6 +79,7 @@ Player.prototype.update = function() {
     }
 
     // Check for player reaching top of canvas and winning the game
+
     if (this.y < 0) {
         this.x = 200;
         this.y = 380;
@@ -91,16 +96,15 @@ Player.prototype.update = function() {
           score +=10;
         }
         startTime = Date.now();
+
+        //Game result
+        resultGame.innerHTML = 'Congratulation!!!';
+        resultScore.innerHTML = 'Your score : '+ score;
+        modal.style.display = 'flex';
+        result = false;
     }
 
-    document.querySelector('.score').innerHTML = score;
-
-    //Game result
-    if (i < 0){
-      document.querySelector('.scoring').innerHTML = score;
-      modal.style.display = 'flex';
-    }
-
+    gameScore.innerHTML = score;
 };
 
 Player.prototype.render = function() {
@@ -109,7 +113,7 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(keyPress) {
 
-    if (i >= 0) {
+      if (result) {
         switch (keyPress) {
             case 'left':
                 this.x -= this.speed + 50;
@@ -127,6 +131,7 @@ Player.prototype.handleInput = function(keyPress) {
     }
     else return false;
 };
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies

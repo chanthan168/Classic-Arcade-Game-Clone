@@ -15,21 +15,14 @@ h2 {
 /* style for game panel */
 .game-panel{
   color: #2980b9;
+  font-size: 1.4em;
   margin-bottom: 0;
 }
 
-.game-panel .life {
-   display: inline-block;
-   margin: 0;
-   padding: 0;
-}
-
-.game-panel .life li {
-    list-style: none;
-    display: inline-block;
-    font-size: 1.2em;
-    color: #ff0000;
-    margin-bottom: 0;
+.game-panel .play {
+   color: #ff0000;
+   margin-bottom: 0;
+   cursor: pointer;
 }
 
 .score{
@@ -52,7 +45,7 @@ h2 {
   z-index: 1;
 }
 
-.gameOver {
+.resultGame {
   color : #f4d03f;
   font-weight: bold;
   font-size: 2.6em;
